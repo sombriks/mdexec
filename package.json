@@ -1,5 +1,5 @@
 {
-  "name": "mdrun",
+  "name": "mdexec",
   "type": "module",
   "version": "0.0.0",
   "description": "run bash scripts from markdown files",

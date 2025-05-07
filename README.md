@@ -1,4 +1,4 @@
-# [mdrun][repo]
+# [mdexec][repo]
 
 Run bash scripts inside markdown files!
 
@@ -12,4 +12,4 @@ Some IDE's alr4ady offers to execute scripts.
 
 ## How
 
-[repo]: https://github.com/sombriks/mdrun
+[repo]: https://github.com/sombriks/mdexec

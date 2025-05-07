@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sombriks/mdrun.git"
+    "url": "git+https://github.com/sombriks/mdexec.git"
   },
   "keywords": [
     "bash",
@@ -21,7 +21,7 @@
   "author": "sombriks",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sombriks/mdrun/issues"
+    "url": "https://github.com/sombriks/mdexec/issues"
   },
-  "homepage": "https://github.com/sombriks/mdrun#readme"
+  "homepage": "https://github.com/sombriks/mdexec#readme"
 }

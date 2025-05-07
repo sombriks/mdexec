@@ -7,22 +7,25 @@ const content = fs.readFileSync(path.join(".", file), { encoding: "utf-8" }).spl
 
 // 2 - parse file (titles and block scripts)
 let blockOpen = false
-const parsed = content.map(line => {
-  line = line.trim()
-  if (line.startsWith("#"))
+const filtered = content.map(line => {
+  if (line.trim().startsWith("#"))
     return line
-  else if (line.startsWith("```bash")) {
+  else if (line.trim().startsWith("```bash")) {
     blockOpen = true
     return line
-  } else if (line.startsWith("```")) {
+  } else if (line.trim().startsWith("```")) {
     blockOpen = false
     return line
   } else if (blockOpen) {
     return line
   } else return ""
-}).filter(line => '' != line)
+}).filter(line => "" != line)
+const parsed = filtered.reduce((acc, line) => {
+  // set title 
+  // add script
+  return acc
+}, {})
 console.log(parsed)
-
 // 
 // 3- list all script blocks marked as bash
 // 4 - run a given script

@@ -12,4 +12,16 @@ Some IDE's alr4ady offers to execute scripts.
 
 ## How
 
+Add some script blocks:
+
+```bash
+echo "Hello there!"
+```
+
+```bash
+echo "General Kenobi!"
+```
+
+Then `mdexec` will offer to run it.
+
 [repo]: https://github.com/sombriks/mdexec

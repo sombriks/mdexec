@@ -1,7 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { title } from "process"
-
+import { spawn } from "child_process"
 // 1- find the markdown file (default is ./README.md)
 const file = "README.md"
 const content = fs.readFileSync(path.join(".", file), { encoding: "utf-8" }).split("\n")
@@ -44,15 +43,23 @@ const parsed = filtered.reduce((acc, line) => {
 // 3- list all script blocks marked as bash (print usage)
 const { parsedScripts } = parsed
 let n = 0
+const scriptList = []
 for (const title in parsedScripts) {
   console.log("\n%s", title)
   for (let i = 0; i < parsedScripts[title].length; i++) {
-    n += i
     console.log("[%s]:", n)
     const script = parsedScripts[title][i].join("\n")
+    scriptList.push(script)
     console.log(script)
+    n += 1
   }
-  n += 1
 }
 
 // 4 - run a given script
+if (process.argv.length > 2) {
+  console.log("\nExecuting #%s:\n", process.argv[2])
+  const cmd = spawn("sh", ["-c", scriptList[process.argv[2]]])
+  cmd.stdout.on("data", data => console.log(`${data}`))
+  cmd.stderr.on("data", data => console.log(`${data}`))
+  cmd.on("close", status => console.log("exit with status %s", status))
+}

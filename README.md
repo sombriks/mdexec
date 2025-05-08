@@ -1,6 +1,8 @@
 # [mdexec][repo]
 
-Run bash scripts inside markdown files!
+```bash
+echo "Run bash scripts inside markdown files!"
+```
 
 ## Why
 
@@ -8,11 +10,11 @@ Sometimes documentation also offers a command to execute.
 
 Would be nice exec such scripts from terminal.
 
-Some IDE's alr4ady offers to execute scripts.
+Some IDE's already offers to execute scripts.
 
 ## How
 
-Add some script blocks:
+Add some script blocks in your markdown document:
 
 ```bash
 # Obi-Wan jumps
@@ -22,6 +24,13 @@ echo "Hello there!"
 ```bash
 # Grievous salutes
 echo "General Kenobi!"
+```
+
+```bash
+for i in `ls`
+do
+  echo $i
+done
 ```
 
 Then `mdexec` will present them:
@@ -41,4 +50,13 @@ echo "for now,"
 echo "only bash is supported"
 ```
 
+## Further reading
+
+- [Intellij plugin][intellij]
+- (Abandoned) [VSCode plugin][vscode]
+- [Jupyter notebooks][jupyter]
+
 [repo]: https://github.com/sombriks/mdexec
+[intellij]: https://www.jetbrains.com/help/idea/markdown.html#run-commands
+[vscode]: https://marketplace.visualstudio.com/items/?itemName=Sycl.markdown-command-runner
+[jupyter]: https://jupyter.org

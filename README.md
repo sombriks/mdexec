@@ -1,5 +1,7 @@
 # [mdexec][repo]
 
+[![npm](https://badgen.net/npm/v/mdexec?color=blue&icon=npm)][npm]
+
 ```bash
 echo "Run bash scripts inside markdown files!"
 ```
@@ -57,6 +59,7 @@ echo "only bash is supported"
 - [Jupyter notebooks][jupyter]
 
 [repo]: https://github.com/sombriks/mdexec
+[npm]: https://www.npmjs.com/package/mdexec
 [intellij]: https://www.jetbrains.com/help/idea/markdown.html#run-commands
 [vscode]: https://marketplace.visualstudio.com/items/?itemName=Sycl.markdown-command-runner
 [jupyter]: https://jupyter.org

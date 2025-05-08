@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/sombriks/mdexec/issues"
   },
-  "homepage": "https://github.com/sombriks/mdexec#readme"
+  "homepage": "https://github.com/sombriks/mdexec#readme",
+  "dependencies": {
+    "command-line-args": "^6.0.1"
+  }
 }

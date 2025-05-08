@@ -1,9 +1,20 @@
+import cmdArgs from "command-line-args"
 import fs from "fs"
 import path from "path"
 import { spawn } from "child_process"
+
 // 1- find the markdown file (default is ./README.md)
-const file = "README.md"
-const content = fs.readFileSync(path.join(".", file), { encoding: "utf-8" }).split("\n")
+const options = cmdArgs([
+  { type: Boolean, alias: "l", name: "list", defaultValue: false, },
+  { type: String, alias: "d", name: "directory", },
+  { type: String, alias: "f", name: "file", },
+  { type: Number, alias: "s", name: "script", defaultOption: true, },
+])
+console.log(options)
+if (options.script == undefined) options.list = true
+const file = options.file || "README.md"
+const content = fs.readFileSync(path.join(options.directory || ".", file), // 
+  { encoding: "utf-8" }).split("\n")
 
 // 2 - parse file (titles and block scripts)
 let blockOpen = false
@@ -20,6 +31,7 @@ const filtered = content.map(line => {
     return line
   } else return ""
 }).filter(line => "" != line)
+
 const parsed = filtered.reduce((acc, line) => {
   // set title 
   if (!acc.scriptOpen && line.trim().startsWith("#")) {
@@ -38,27 +50,32 @@ const parsed = filtered.reduce((acc, line) => {
     acc.currentScripts.push(line)
   }
   return acc
-}, { scriptOpen: false, currentTitle: "", currentScripts: [], parsedScripts: {} })
+}, {
+  scriptOpen: false,
+  currentTitle: "",
+  currentScripts: [],
+  parsedScripts: {}
+})
 
 // 3- list all script blocks marked as bash (print usage)
 const { parsedScripts } = parsed
 let n = 0
 const scriptList = []
 for (const title in parsedScripts) {
-  console.log("\n%s", title)
+  if (options.list) console.log("\n%s", title)
   for (let i = 0; i < parsedScripts[title].length; i++) {
-    console.log("[%s]:", n)
+    if (options.list) console.log("[%s]:", n)
     const script = parsedScripts[title][i].join("\n")
     scriptList.push(script)
-    console.log(script)
+    if (options.list) console.log(script)
     n += 1
   }
 }
 
 // 4 - run a given script
-if (process.argv.length > 2) {
-  console.log("\nExecuting #%s:\n", process.argv[2])
-  const cmd = spawn("sh", ["-c", scriptList[process.argv[2]]])
+if (options.script != undefined) {
+  console.log("\nExecuting #%s:\n", options.script)
+  const cmd = spawn("sh", ["-c", scriptList[options.script]])
   cmd.stdout.on("data", data => console.log(`${data}`))
   cmd.stderr.on("data", data => console.log(`${data}`))
   cmd.on("close", status => console.log("exit with status %s", status))

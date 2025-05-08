@@ -45,7 +45,7 @@ Then `mdexec` will present them:
     # Grievous salutes
     echo "General Kenobi!"
   
-### What about other scripts
+### What about other shells
 
 ```bash
 echo "for now,"

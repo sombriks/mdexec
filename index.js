@@ -40,7 +40,19 @@ const parsed = filtered.reduce((acc, line) => {
   }
   return acc
 }, { scriptOpen: false, currentTitle: "", currentScripts: [], parsedScripts: {} })
-console.log(parsed)
-// 
-// 3- list all script blocks marked as bash
+
+// 3- list all script blocks marked as bash (print usage)
+const { parsedScripts } = parsed
+let n = 0
+for (const title in parsedScripts) {
+  console.log("\n%s", title)
+  for (let i = 0; i < parsedScripts[title].length; i++) {
+    n += i
+    console.log("[%s]:", n)
+    const script = parsedScripts[title][i].join("\n")
+    console.log(script)
+  }
+  n += 1
+}
+
 // 4 - run a given script

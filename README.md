@@ -15,13 +15,30 @@ Some IDE's alr4ady offers to execute scripts.
 Add some script blocks:
 
 ```bash
+# Obi-Wan jumps
 echo "Hello there!"
 ```
 
 ```bash
+# Grievous salutes
 echo "General Kenobi!"
 ```
 
-Then `mdexec` will offer to run it.
+Then `mdexec` will present them:
+
+    ## How
+    [0]:
+    # Obi-Wan jumps
+    echo "Hello there!"
+    [1]:
+    # Grievous salutes
+    echo "General Kenobi!"
+  
+### What about other scripts
+
+```bash
+echo "for now,"
+echo "only bash is supported"
+```
 
 [repo]: https://github.com/sombriks/mdexec

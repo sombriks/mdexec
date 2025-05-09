@@ -12,8 +12,9 @@ const options = cmdArgs([
 ])
 console.log(options)
 if (options.script == undefined) options.list = true
+const cwd = options.directory || "."
 const file = options.file || "README.md"
-const content = fs.readFileSync(path.join(options.directory || ".", file), // 
+const content = fs.readFileSync(path.join(cwd, file), // 
   { encoding: "utf-8" }).split("\n")
 
 // 2 - parse file (titles and block scripts)
@@ -75,7 +76,8 @@ for (const title in parsedScripts) {
 // 4 - run a given script
 if (options.script != undefined) {
   console.log("\nExecuting #%s:\n", options.script)
-  const cmd = spawn("sh", ["-c", scriptList[options.script]])
+
+  const cmd = spawn("sh", ["-c", scriptList[options.script]], { cwd })
   cmd.stdout.on("data", data => console.log(`${data}`))
   cmd.stderr.on("data", data => console.log(`${data}`))
   cmd.on("close", status => console.log("exit with status %s", status))

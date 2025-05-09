@@ -7,7 +7,8 @@
   "bin": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "ava test"
+    "test": "ava test",
+    "cover": "c8 ava test"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "command-line-args": "^6.0.1"
   },
   "devDependencies": {
-    "ava": "^6.3.0"
+    "ava": "^6.3.0",
+    "c8": "^10.1.3"
   }
 }

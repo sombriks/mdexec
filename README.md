@@ -1,6 +1,7 @@
 # [mdexec][repo]
 
 [![npm](https://badgen.net/npm/v/mdexec?color=blue&icon=npm)][npm]
+[![Node.js CI](https://github.com/sombriks/mdexec/actions/workflows/node.js.yml/badge.svg)][workflow]
 
 ```bash
 echo "Run bash scripts inside markdown files!"
@@ -60,6 +61,7 @@ echo "only bash is supported"
 
 [repo]: https://github.com/sombriks/mdexec
 [npm]: https://www.npmjs.com/package/mdexec
+[workflow]: https://github.com/sombriks/mdexec/actions/workflows/node.js.yml
 [intellij]: https://www.jetbrains.com/help/idea/markdown.html#run-commands
 [vscode]: https://marketplace.visualstudio.com/items/?itemName=Sycl.markdown-command-runner
 [jupyter]: https://jupyter.org

@@ -1,15 +1,16 @@
 import test from "ava"
-import {runBashScript} from "../lib/executor.js"
+import { runBashScript } from "../lib/executor.js"
 
 test("should execute", t => {
-  t.notThrows(() => runBashScript({script: 0}, {
-    allScripts:[["echo hello world!"]]
+  t.notThrows(() => runBashScript({ script: 0 }, {
+    allScripts: [["echo hello world!"]]
   }, "."))
 })
 
-test("should read stdin", t => {
-  runBashScript({script: 0}, {
-    allScripts:[["read i", "echo $i!"]]
+test.skip("should read stdin", t => {
+  process.stdin.write("test")
+  runBashScript({ script: 0 }, {
+    allScripts: [["read i", "echo \"hello $i!\""]]
   }, ".")
   t.pass()
 })

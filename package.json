@@ -7,7 +7,7 @@
   "bin": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "ava test",
+    "test": "ava --debug test",
     "cover": "c8 ava test"
   },
   "repository": {

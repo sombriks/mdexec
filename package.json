@@ -4,7 +4,9 @@
   "version": "0.1.4",
   "description": "run bash scripts from markdown files",
   "main": "index.js",
-  "bin": "mdexec.sh",
+  "bin": {
+    "mdexec": "index.js"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "ava --debug test",

@@ -17,7 +17,7 @@ npm -g i mdexec
 Run with `npx` if you prefer:
 
 ```bash
-npm -g i mdexec
+npx mdexec
 ```
 
 ## Usage

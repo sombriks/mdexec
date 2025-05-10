@@ -81,6 +81,11 @@ Then `mdexec` will present them:
     [1]:
     # Grievous salutes
     echo "General Kenobi!"
+    [2]:
+    for i in `ls`
+    do
+      echo $i
+    done
   
 ### What about other shells
 

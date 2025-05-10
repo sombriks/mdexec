@@ -2,10 +2,46 @@
 
 [![npm](https://badgen.net/npm/v/mdexec?color=blue&icon=npm)][npm]
 [![Node.js CI](https://github.com/sombriks/mdexec/actions/workflows/node.js.yml/badge.svg)][workflow]
+[![MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 ```bash
 echo "Run bash scripts inside markdown files!"
 ```
+
+## Installing
+
+```bash
+npm -g i mdexec
+```
+
+Run with `npx` if you prefer:
+
+```bash
+npm -g i mdexec
+```
+
+## Usage
+
+Run the first bash script contained in a `README.md` file in current directory:
+
+```bash
+mdexec 0
+```
+
+List all scripts from `README.md`:
+
+```bash
+mdexec 
+# or mdexec -l
+```
+
+Pass directory where to run and markdown file name, run the 4th script:
+
+```bash
+mdexec -f steps/intro.md -d ../example -s 3
+```
+
+Run `mdexec -h` for more details.
 
 ## Why
 
